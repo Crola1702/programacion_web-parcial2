@@ -2,6 +2,11 @@ import { Card } from "react-bootstrap";
 
 function CoffeeDetailed ({ coffee }) {
     // console.log(coffee)
+
+    if (!coffee) {
+        return null
+    }
+
     return (
         <Card className="d-flex justify-content-center red-bg">
             <Card.Body className="mx-2">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, Table, Col, Row } from "react-bootstrap";
 import CoffeeDetailed from "./CoffeeDetailed";
-
+import { getData } from "../utils/requests";
 
 function Home() {
 
@@ -9,28 +9,13 @@ function Home() {
     const [focusedCoffee, setFocusedCoffee] = useState(undefined)
 
     useEffect(() => {
-        fetch("http://localhost:3001/cafes")
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                setCoffee(data);
-            });
+        getData(setCoffee, "cafes");
     }, []);
 
-    function getFocusedCoffe() {
-        if (focusedCoffee) {
-            fetch(`http://localhost:3001/cafes/${focusedCoffee.id}`)
-                .then((res) => res.json())
-                .then((data) => {
-                    setFocusedCoffee(data);
-                });
-
-            return (
-                <CoffeeDetailed coffee={focusedCoffee} />
-            )
-        }
+    function handleFocusedCoffee(coffee) {
+        getData(setFocusedCoffee, `cafes/${coffee.id}`);
     }
-
+        
     return (
         <Container fluid className="mx-auto">
             <Row>
@@ -46,7 +31,7 @@ function Home() {
                         </thead>
                         <tbody>
                             {coffee.map((coffee) => (
-                                <tr key={coffee.id} onClick={() => setFocusedCoffee(coffee)}>
+                                <tr key={coffee.id} onClick={() => handleFocusedCoffee(coffee)}>
                                     <td>{coffee.id}</td>
                                     <td>{coffee.nombre}</td>
                                     <td>{coffee.tipo}</td>
@@ -57,7 +42,7 @@ function Home() {
                     </Table>
                 </Col>
                 <Col md={4}>
-                    {getFocusedCoffe()}
+                    <CoffeeDetailed coffee={focusedCoffee} />
                 </Col>
             </Row>
         </Container>
