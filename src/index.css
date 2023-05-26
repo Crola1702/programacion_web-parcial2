@@ -7,8 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.login-card {
-  background-color: rgba(224, 187, 187, 0.2);
+.red-bg {
+  background-color: rgba(224, 187, 187, 0.2) !important;
+}
+
+.text-bg {
+  background-color: rgba(217, 217, 217, 1) !important;
 }
 
 code {

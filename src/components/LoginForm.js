@@ -41,26 +41,26 @@ function LoginForm() {
   return (
     <Container>
       <h3>Inicio de sesión</h3>
-      <Card className="d-flex justify-content-center login-card">
+      <Card className="d-flex justify-content-center red-bg">
         <Card.Body className="mx-auto" style={{ width: "75%" }}>
           <Form onSubmit={handleLogin}>
             <Form.Group controlId="username">
               <Form.Label>Nombre de usuario</Form.Label>
-              <Form.Control type="text" />
+              <Form.Control className="text-bg" type="text" />
             </Form.Group>
             <Form.Group controlId="password">
               <Form.Label>Contraseña</Form.Label>
-              <Form.Control type="password" />
+              <Form.Control className="text-bg" type="password" />
             </Form.Group>
             <br />
             <Row className="d-flex justify-content-center">
               <Col md={6} className="d-flex justify-content-center">
-                <Button variant="success" type="submit" className="w-100">
+                <Button variant="success"style={{ color: "black" }} type="submit" className="w-100">
                   Iniciar sesión
                 </Button>
               </Col>
               <Col md={6} className="d-flex justify-content-center">
-                <Button variant="danger" type="reset" className="w-100">
+                <Button variant="danger" style={{ color: "black" }} type="reset" className="w-100">
                   Cancelar
                 </Button>
               </Col>
