@@ -25,7 +25,7 @@ root.render(
   <IntlProvider locale={userLocale} messages={messagesMap[userLocale.slice(0, 2)]}>
     <Container fluid>
       <BrowserRouter>
-        <h1 style={{ fontFamily: "fantasy"}}>
+        <h1 className="font-link">
           <FormattedMessage id="HomeTitle" />
         </h1> 
         <hr/>
