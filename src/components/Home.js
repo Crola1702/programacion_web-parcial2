@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Table, Col, Row } from "react-bootstrap";
 import CoffeeDetailed from "./CoffeeDetailed";
 import { getData } from "../utils/requests";
+import { FormattedMessage } from "react-intl";
 
 function Home() {
 
@@ -24,9 +25,9 @@ function Home() {
                         <thead className="table-dark">
                             <tr>
                                 <th>#</th>
-                                <th>Nombre</th>
-                                <th>Tipo</th>
-                                <th>Región</th>
+                                <th><FormattedMessage id="Name"/></th>
+                                <th><FormattedMessage id="Type"/></th>
+                                <th><FormattedMessage id="Region"/></th>
                             </tr>
                         </thead>
                         <tbody>

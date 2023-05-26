@@ -1,8 +1,7 @@
 import { Card } from "react-bootstrap";
+import { FormattedMessage, FormattedDate, FormattedNumber } from "react-intl";
 
 function CoffeeDetailed ({ coffee }) {
-    // console.log(coffee)
-
     if (!coffee) {
         return null
     }
@@ -14,21 +13,25 @@ function CoffeeDetailed ({ coffee }) {
                     {coffee.nombre}
                 </Card.Title>
                 <Card.Subtitle className="d-flex justify-content-center">
-                    {coffee.fecha_cultivo}
+                    <FormattedDate value={coffee.fecha_cultivo}
+                        year="numeric"
+                        month="long"
+                        day="numeric"
+                     />
                 </Card.Subtitle>
                 <Card.Img className="p-5" src={coffee.imagen} />
                 <Card.Subtitle className="d-flex justify-content-center">
-                    Notas
+                    <FormattedMessage id="Notes" />
                 </Card.Subtitle>
                 <Card.Text className="d-flex justify-content-center">
                     {coffee.notas}
                 </Card.Text>
 
                 <Card.Title className="d-flex justify-content-center">
-                    Cultivado a una altura de
+                    <FormattedMessage id="GrownMessage" />
                 </Card.Title>
                 <Card.Title className="d-flex justify-content-center">
-                    {coffee.altura} msnm
+                    <FormattedNumber value={coffee.altura}/> {" "} <FormattedMessage id="MetersUnit" />
                 </Card.Title>
             </Card.Body>
         </Card>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import { FormattedMessage } from "react-intl";
 
 function LoginForm() {
   const [authenticated, setAuthenticated] = useState(undefined);
@@ -8,7 +9,7 @@ function LoginForm() {
     if (authenticated === false) {
       return (
         <p style={{ color: "red" }}>
-          Error de autenticación. Revise sus credenciales
+          <FormattedMessage id="LoginError" />
         </p>
       );
     }
@@ -40,28 +41,44 @@ function LoginForm() {
 
   return (
     <Container>
-      <h3>Inicio de sesión</h3>
+      <h3>
+        <FormattedMessage id="LoginTitle" />
+      </h3>
       <Card className="d-flex justify-content-center red-bg">
         <Card.Body className="mx-auto" style={{ width: "75%" }}>
           <Form onSubmit={handleLogin}>
             <Form.Group controlId="username">
-              <Form.Label>Nombre de usuario</Form.Label>
+              <Form.Label>
+                <FormattedMessage id="Username" />
+              </Form.Label>
               <Form.Control className="text-bg" type="text" />
             </Form.Group>
             <Form.Group controlId="password">
-              <Form.Label>Contraseña</Form.Label>
+              <Form.Label>
+                <FormattedMessage id="Password" />
+              </Form.Label>
               <Form.Control className="text-bg" type="password" />
             </Form.Group>
             <br />
             <Row className="d-flex justify-content-center">
               <Col md={6} className="d-flex justify-content-center">
-                <Button variant="success"style={{ color: "black" }} type="submit" className="w-100">
-                  Iniciar sesión
+                <Button
+                  variant="success"
+                  style={{ color: "black" }}
+                  type="submit"
+                  className="w-100"
+                >
+                  <FormattedMessage id="Login" />
                 </Button>
               </Col>
               <Col md={6} className="d-flex justify-content-center">
-                <Button variant="danger" style={{ color: "black" }} type="reset" className="w-100">
-                  Cancelar
+                <Button
+                  variant="danger"
+                  style={{ color: "black" }}
+                  type="reset"
+                  className="w-100"
+                >
+                  <FormattedMessage id="Cancel" />
                 </Button>
               </Col>
             </Row>
